@@ -62,10 +62,6 @@ public class Login implements WindowListener, ActionListener
 		frmVentanaLogin.setVisible(true);
 	}
 	
-	public static void main(String[] args) {
-		new Login();
-	}
-	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
