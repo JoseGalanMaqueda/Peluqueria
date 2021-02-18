@@ -33,6 +33,7 @@ public class Principal implements WindowListener, ActionListener
 	MenuItem mniBajaCliente = new MenuItem("Eliminar Cliente");
 	MenuItem mniModificacionCliente = new MenuItem("Editar Cliente");
 	MenuItem mniConsultaCliente = new MenuItem("Consultar Clientes");
+	Clientes cliente = null;
 
 	// =================================== MENU TRATAMIENTOS ===================================
 	Menu mnuTratamientos = new Menu("Tratamientos");
@@ -99,7 +100,10 @@ public class Principal implements WindowListener, ActionListener
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		if (e.getSource().equals(mniAltaCliente)) {
+			cliente = new Clientes();
+			cliente.mostrarAltaClientes();
+		}
 
 	}
 
