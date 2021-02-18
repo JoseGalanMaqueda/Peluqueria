@@ -84,8 +84,8 @@ public class Login implements WindowListener, ActionListener
 				if (rs.next()) 
 				{
 					int tipo = rs.getInt("tipoUsuario");
-					System.out.println(tipo);
-					System.out.println("Conectado correctamente");
+					new Principal(tipo);
+					frmVentanaLogin.setVisible(false);
 				}
 				else 
 				{
