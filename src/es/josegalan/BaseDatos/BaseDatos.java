@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class BaseDatos {
 
 	String driver = "com.mysql.cj.jdbc.Driver";
-	String url = "jdbc:mysql://localhost:3306/misoftware?serverTimezone=UTC";
+	String url = "jdbc:mysql://localhost:3306/peluqueria?serverTimezone=UTC";
 	String login = "root";
 	String password = "Studium2020;";
 	Connection connection = null;
