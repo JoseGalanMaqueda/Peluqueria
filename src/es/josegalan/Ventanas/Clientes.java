@@ -78,11 +78,12 @@ public class Clientes implements WindowListener, ActionListener, ItemListener
 	Statement statement = null;
 	ResultSet rs = null;
 
+	// ======================================= CONSTRUCTOR ==============================================
 	public Clientes() {
 
 	}
 
-
+	// ====================================== MOSTRAR VENTANA ALTA CLIENTES ==============================
 	public void mostrarAltaClientes() 
 	{
 		frmAltaClientes.setSize(400, 300);
@@ -238,7 +239,6 @@ public class Clientes implements WindowListener, ActionListener, ItemListener
 				sentencia = "INSERT INTO clientes VALUES (null, '"+ txtNombreAltaClientes.getText()+ "', '" +txtApellidosAltaClientes.getText() +
 						"', '"+ txtDniAltaClientes.getText() +"', '" + txtDireccionAltaClientes.getText() + "', '" + eleccion +"');";
 				statement.executeUpdate(sentencia);
-				System.out.println(sentencia);
 
 			} catch (SQLException e)
 			{
