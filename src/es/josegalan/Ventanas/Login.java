@@ -11,6 +11,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import es.josegalan.BaseDatos.BaseDatos;
 
 public class Login implements WindowListener, ActionListener
 {
@@ -28,6 +34,13 @@ public class Login implements WindowListener, ActionListener
 	// =============================== DIALOGO ERROR =============================================
 	Dialog dlgError = new Dialog(frmVentanaLogin, "Error", true);
 	Label lblError = new Label("Datos incorrectos");
+	
+	// ================================ BASE DATOS ===============================================
+	BaseDatos bd = null;
+	String sentencia = "";
+    Connection connection = null;
+    Statement statement = null;
+    ResultSet rs = null;
 	
 	public Login() 
 	{
@@ -66,14 +79,35 @@ public class Login implements WindowListener, ActionListener
 		}
 		else if (e.getSource().equals(btnAcceder)) 
 		{
-			dlgError.setLayout(new FlowLayout());
-			dlgError.setSize(160, 120);
-			dlgError.add(lblError);
-			dlgError.setBackground(colorPrincipal);
-			dlgError.addWindowListener(this);
-			dlgError.setResizable(false);
-			dlgError.setLocationRelativeTo(null);
-			dlgError.setVisible(true);
+			BaseDatos bd = new BaseDatos();
+			connection = bd.conectar();
+			try {
+				statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+				sentencia = "SELECT * from usuarios where nombreUsuario='"+txtNombreUsuario.getText()+"' AND claveUsuario = sha2('"+txtPassword.getText()+"',256);";
+				rs = statement.executeQuery(sentencia);
+				if (rs.next()) 
+				{
+					int tipo = rs.getInt("tipoUsuario");
+					System.out.println(tipo);
+					System.out.println("Conectado correctamente");
+				}
+				else 
+				{
+					dlgError.setLayout(new FlowLayout());
+					dlgError.setSize(160, 120);
+					dlgError.add(lblError);
+					dlgError.setBackground(colorPrincipal);
+					dlgError.addWindowListener(this);
+					dlgError.setResizable(false);
+					dlgError.setLocationRelativeTo(null);
+					dlgError.setVisible(true);
+				}
+			} catch (SQLException e2) {
+				System.out.println("Error 2"+e2.getMessage());
+			}finally {
+				bd.desconectar(connection);
+			}
+			
 		}
 	}
 
