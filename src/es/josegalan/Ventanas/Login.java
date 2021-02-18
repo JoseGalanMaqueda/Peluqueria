@@ -53,7 +53,9 @@ public class Login implements WindowListener, ActionListener
 		txtPassword.setEchoChar('*');
 		frmVentanaLogin.add(txtPassword);
 		btnAcceder.addActionListener(this);
+		btnAcceder.setBackground(Color.WHITE);
 		frmVentanaLogin.add(btnAcceder);
+		btnLimpiar.setBackground(Color.WHITE);
 		btnLimpiar.addActionListener(this);
 		frmVentanaLogin.add(btnLimpiar);
 		frmVentanaLogin.setBackground(colorPrincipal);

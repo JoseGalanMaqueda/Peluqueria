@@ -44,8 +44,6 @@ public class Principal implements WindowListener, ActionListener
 		// =================================== MENU CITAS ==========================================
 		Menu mnuCitas = new Menu("Citas");
 		MenuItem mniAltaCitas = new MenuItem("Nueva Cita");
-		MenuItem mniBajaCitas = new MenuItem("Eliminar Cita");
-		MenuItem mniModificacionCitas = new MenuItem("Editar Cita");
 		MenuItem mniConsultaCitas = new MenuItem("Consultar Citas");
 	
 	public Principal(int tipo) 
@@ -80,10 +78,6 @@ public class Principal implements WindowListener, ActionListener
 		mniAltaCitas.addActionListener(this);
 		mnuCitas.add(mniAltaCitas);
 		if (tipo == 0) {
-			mniBajaCitas.addActionListener(this);
-			mnuCitas.add(mniBajaCitas);
-			mniModificacionCitas.addActionListener(this);
-			mnuCitas.add(mniModificacionCitas);
 			mniConsultaCitas.addActionListener(this);
 			mnuCitas.add(mniConsultaCitas);
 		}
