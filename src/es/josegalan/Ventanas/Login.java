@@ -20,7 +20,7 @@ import es.josegalan.BaseDatos.BaseDatos;
 
 public class Login implements WindowListener, ActionListener
 {
-	
+
 	// ============================== VENTANA PRINCIPAL =========================================
 	Frame frmVentanaLogin = new Frame("Login");
 	Label lblnombreUsuario = new Label("Usuario:");
@@ -30,18 +30,18 @@ public class Login implements WindowListener, ActionListener
 	Button btnAcceder = new Button("Acceder");
 	Button btnLimpiar = new Button("Limpiar");
 	Color colorPrincipal = new Color(204,229,255);
-	
+
 	// =============================== DIALOGO ERROR =============================================
 	Dialog dlgError = new Dialog(frmVentanaLogin, "Error", true);
 	Label lblError = new Label("Datos incorrectos");
-	
+
 	// ================================ BASE DATOS ===============================================
 	BaseDatos bd = null;
 	String sentencia = "";
-    Connection connection = null;
-    Statement statement = null;
-    ResultSet rs = null;
-	
+	Connection connection = null;
+	Statement statement = null;
+	ResultSet rs = null;
+
 	public Login() 
 	{
 		frmVentanaLogin.setLayout(new FlowLayout());
@@ -63,10 +63,10 @@ public class Login implements WindowListener, ActionListener
 		frmVentanaLogin.setLocationRelativeTo(null);
 		frmVentanaLogin.setVisible(true);
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+
 		if (e.getSource().equals(btnLimpiar)) 
 		{
 			txtNombreUsuario.selectAll();
@@ -105,7 +105,7 @@ public class Login implements WindowListener, ActionListener
 			}finally {
 				bd.desconectar(connection);
 			}
-			
+
 		}
 	}
 
@@ -122,7 +122,7 @@ public class Login implements WindowListener, ActionListener
 		{
 			System.exit(0);
 		}
-		
+
 	}
 
 	@Override
@@ -141,5 +141,5 @@ public class Login implements WindowListener, ActionListener
 	public void windowDeactivated(WindowEvent e) {}
 
 
-	
+
 }

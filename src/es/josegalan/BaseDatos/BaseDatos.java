@@ -7,35 +7,35 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class BaseDatos {
-	
+
 	String driver = "com.mysql.cj.jdbc.Driver";
-    String url = "jdbc:mysql://localhost:3306/misoftware?serverTimezone=UTC";
-    String login = "root";
-    String password = "Studium2020;";
-    Connection connection = null;
-    Statement statement = null;
-    ResultSet rs = null;
-    
-    public BaseDatos() {
-    	
-    }
+	String url = "jdbc:mysql://localhost:3306/misoftware?serverTimezone=UTC";
+	String login = "root";
+	String password = "Studium2020;";
+	Connection connection = null;
+	Statement statement = null;
+	ResultSet rs = null;
+
+	public BaseDatos() {
+
+	}
 
 	public Connection conectar()
-    {
+	{
 		try
-        {
-        	Class.forName(driver);
-            connection = DriverManager.getConnection(url, login, password);
-        } catch (ClassNotFoundException cnfe)
-        {
-            System.out.println("Error 1-" + cnfe.getMessage());
-        } catch (SQLException sqle)
-        {
-            System.out.println("Error 2-" + sqle.getMessage());
-        }
-        return connection;
-    }
-	
+		{
+			Class.forName(driver);
+			connection = DriverManager.getConnection(url, login, password);
+		} catch (ClassNotFoundException cnfe)
+		{
+			System.out.println("Error 1-" + cnfe.getMessage());
+		} catch (SQLException sqle)
+		{
+			System.out.println("Error 2-" + sqle.getMessage());
+		}
+		return connection;
+	}
+
 	public void desconectar(Connection con) 
 	{
 		try {

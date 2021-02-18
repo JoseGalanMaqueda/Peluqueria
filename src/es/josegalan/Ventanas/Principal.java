@@ -16,36 +16,36 @@ import java.awt.event.WindowListener;
 
 public class Principal implements WindowListener, ActionListener
 {
-	
+
 	//===================================== VENTANA PRINCIPAL ==================================
-		Frame ventanaPrincipal = new Frame("Peluqueria Forever Young");
-		Label lblCitasHoy = new Label("Citas Hoy:");
-		TextArea txaCitasHoy = new TextArea(16,54);
-		Button btnActualizar = new Button("Actualizar");
-		Color clFondo = new Color(204,229,255);
+	Frame ventanaPrincipal = new Frame("Peluqueria Forever Young");
+	Label lblCitasHoy = new Label("Citas Hoy:");
+	TextArea txaCitasHoy = new TextArea(16,54);
+	Button btnActualizar = new Button("Actualizar");
+	Color clFondo = new Color(204,229,255);
 
-		//===================================== MENU PRINCIPAL =====================================
-		MenuBar menuPrincipal = new MenuBar();
+	//===================================== MENU PRINCIPAL =====================================
+	MenuBar menuPrincipal = new MenuBar();
 
-		// ==================================== MENU CLIENTES ======================================
-		Menu mnuCliente = new Menu("Clientes");
-		MenuItem mniAltaCliente = new MenuItem("Nuevo Cliente");
-		MenuItem mniBajaCliente = new MenuItem("Eliminar Cliente");
-		MenuItem mniModificacionCliente = new MenuItem("Editar Cliente");
-		MenuItem mniConsultaCliente = new MenuItem("Consultar Clientes");
+	// ==================================== MENU CLIENTES ======================================
+	Menu mnuCliente = new Menu("Clientes");
+	MenuItem mniAltaCliente = new MenuItem("Nuevo Cliente");
+	MenuItem mniBajaCliente = new MenuItem("Eliminar Cliente");
+	MenuItem mniModificacionCliente = new MenuItem("Editar Cliente");
+	MenuItem mniConsultaCliente = new MenuItem("Consultar Clientes");
 
-		// =================================== MENU TRATAMIENTOS ===================================
-		Menu mnuTratamientos = new Menu("Tratamientos");
-		MenuItem mniAltaTratamiento = new MenuItem("Nuevo Tratamientos");
-		MenuItem mniBajaTratamiento = new MenuItem("Eliminar Tratamiento");
-		MenuItem mniModificacionTratamiento = new MenuItem("Editar Tratamiento");
-		MenuItem mniConsultaTratamientos = new MenuItem("Consultar Tratamiento");
+	// =================================== MENU TRATAMIENTOS ===================================
+	Menu mnuTratamientos = new Menu("Tratamientos");
+	MenuItem mniAltaTratamiento = new MenuItem("Nuevo Tratamientos");
+	MenuItem mniBajaTratamiento = new MenuItem("Eliminar Tratamiento");
+	MenuItem mniModificacionTratamiento = new MenuItem("Editar Tratamiento");
+	MenuItem mniConsultaTratamientos = new MenuItem("Consultar Tratamiento");
 
-		// =================================== MENU CITAS ==========================================
-		Menu mnuCitas = new Menu("Citas");
-		MenuItem mniAltaCitas = new MenuItem("Nueva Cita");
-		MenuItem mniConsultaCitas = new MenuItem("Consultar Citas");
-	
+	// =================================== MENU CITAS ==========================================
+	Menu mnuCitas = new Menu("Citas");
+	MenuItem mniAltaCitas = new MenuItem("Nueva Cita");
+	MenuItem mniConsultaCitas = new MenuItem("Consultar Citas");
+
 	public Principal(int tipo) 
 	{
 		ventanaPrincipal.setSize(450, 400);
@@ -100,36 +100,36 @@ public class Principal implements WindowListener, ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	// ========================================== WINDOW LISTENER ===========================================
-		@Override
-		public void windowOpened(WindowEvent e) {}
+	@Override
+	public void windowOpened(WindowEvent e) {}
 
-		@Override
-		public void windowClosing(WindowEvent e) {
-			System.exit(0);
-		}
-
-
-		@Override
-		public void windowClosed(WindowEvent e) {}
+	@Override
+	public void windowClosing(WindowEvent e) {
+		System.exit(0);
+	}
 
 
-		@Override
-		public void windowIconified(WindowEvent e) {}
+	@Override
+	public void windowClosed(WindowEvent e) {}
 
 
-		@Override
-		public void windowDeiconified(WindowEvent e) {}
+	@Override
+	public void windowIconified(WindowEvent e) {}
 
 
-		@Override
-		public void windowActivated(WindowEvent e) {}
+	@Override
+	public void windowDeiconified(WindowEvent e) {}
 
 
-		@Override
-		public void windowDeactivated(WindowEvent e) {}
+	@Override
+	public void windowActivated(WindowEvent e) {}
+
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {}
 
 }
