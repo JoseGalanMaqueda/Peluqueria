@@ -41,6 +41,7 @@ public class Principal implements WindowListener, ActionListener
 	MenuItem mniBajaTratamiento = new MenuItem("Eliminar Tratamiento");
 	MenuItem mniModificacionTratamiento = new MenuItem("Editar Tratamiento");
 	MenuItem mniConsultaTratamientos = new MenuItem("Consultar Tratamiento");
+	Tratamientos tratamiento = null;
 
 	// =================================== MENU CITAS ==========================================
 	Menu mnuCitas = new Menu("Citas");
@@ -103,6 +104,9 @@ public class Principal implements WindowListener, ActionListener
 		if (e.getSource().equals(mniAltaCliente)) {
 			cliente = new Clientes();
 			cliente.mostrarAltaClientes();
+		}else if (e.getSource().equals(mniAltaTratamiento)) {
+			tratamiento = new Tratamientos();
+			tratamiento.mostrarAltaTratamientos();
 		}
 
 	}
