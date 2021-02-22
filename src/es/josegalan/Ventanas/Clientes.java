@@ -264,6 +264,7 @@ public class Clientes implements WindowListener, ActionListener, ItemListener
 	// ============================================= ITEM LISTENER ==========================================================================
 	@Override
 	public void itemStateChanged(ItemEvent e) {
+
 		if ("Hombre".equals(e.getItem()))
 		{
 			if (e.getStateChange() == ItemEvent.SELECTED)
@@ -279,4 +280,25 @@ public class Clientes implements WindowListener, ActionListener, ItemListener
 			}
 		}
 	}
+	
+	// ========================================= METODO CONSULTAR CLIENTES ==========================================
+	public ResultSet consultaClientes() {
+		bd = new BaseDatos();
+		connection = bd.conectar();
+		sentencia = "SELECT * FROM clientes;";
+		try
+		{
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+					ResultSet.CONCUR_READ_ONLY);
+			rs = statement.executeQuery(sentencia);
+			return rs;
+		}
+		catch (SQLException sqle)
+		{
+			System.out.println("Error en los datos");
+		}
+		return rs;
+	}
+	
+	
 }

@@ -61,7 +61,7 @@ public class Tratamientos implements WindowListener, ActionListener, ItemListene
 	Label lblAnadidoCorrectamente = new Label("Cliente añadido correctamente");
 
 
-
+	// ====================================== CONSTRUCTOR ===============================================
 	public Tratamientos() {
 
 	}
@@ -193,6 +193,7 @@ public class Tratamientos implements WindowListener, ActionListener, ItemListene
 		}
 	}
 	
+	// ============================================== CREACION DIALOGOS ================================================
 	public void creacionDialogoNotificacion(Dialog dialogo, Label lbl) {
 		dialogo.setSize(250, 100);
 		dialogo.setLayout(new FlowLayout());
@@ -203,6 +204,7 @@ public class Tratamientos implements WindowListener, ActionListener, ItemListene
 		dialogo.setVisible(true);
 	}
 	
+	// =============================================== CREACION VENTANAS DE CONFIRMACION =================================================
 	public void creacionVentanaConfirmacion(Frame ventana, Label lbl, Button btnUno, Button btnDos) 
 	{
 		ventana.setSize(270, 100);

@@ -13,6 +13,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Principal implements WindowListener, ActionListener
 {
@@ -85,6 +87,16 @@ public class Principal implements WindowListener, ActionListener
 		}
 		menuPrincipal.add(mnuCitas);
 
+		cliente = new Clientes();
+		ResultSet rs = cliente.consultaClientes();
+		txaCitasHoy.append("id\tNombre\tCif\n");
+		try {
+			while (rs.next()) {
+				txaCitasHoy.append(rs.getInt("idCliente")+"\t"+rs.getString("nombreCliente")+"\t"+rs.getString("apellidosCliente")+"\n");
+			}
+		} catch (SQLException e) {
+			System.out.println("Error 6-" + e.getMessage());
+		}
 		ventanaPrincipal.setMenuBar(menuPrincipal);
 		ventanaPrincipal.add(lblCitasHoy);
 		txaCitasHoy.setEditable(false);
