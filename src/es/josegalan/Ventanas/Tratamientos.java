@@ -132,79 +132,11 @@ public class Tratamientos implements WindowListener, ActionListener, ItemListene
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 
-		if ("0.00".equals(e.getItem())) {
-			eleccion = 0.00;
-			System.out.println(eleccion);
-		}else if ("1.00".equals(e.getItem())) {
-			eleccion = 1.00;
-			System.out.println(eleccion);
-		}else if ("1.50".equals(e.getItem())) {
-			if (e.getStateChange()==ItemEvent.SELECTED) {
-				eleccion = 1.50;
-			}
-		}else if ("2.00".equals(e.getItem())) {
-			if (e.getStateChange()==ItemEvent.SELECTED) {
-				eleccion = 2.00;
-			}
-		}else if ("2.50".equals(e.getItem())) {
-			if (e.getStateChange()==ItemEvent.SELECTED) {
-				eleccion = 2.50;
-			}
-		}else if ("3.00".equals(e.getItem())) {
-			if (e.getStateChange()==ItemEvent.SELECTED) {
-				eleccion = 3.00;
-			}
-		}else if ("3.50".equals(e.getItem())) {
-			if (e.getStateChange()==ItemEvent.SELECTED) {
-				eleccion = 3.50;
-			}
-		}else if ("4.00".equals(e.getItem())) {
-			if (e.getStateChange()==ItemEvent.SELECTED) {
-				eleccion = 4.00;
-			}
-		}else if ("4.50".equals(e.getItem())) {
-			if (e.getStateChange()==ItemEvent.SELECTED) {
-				eleccion = 4.50;
-			}
-		}else if ("5.00".equals(e.getItem())) {
-			if (e.getStateChange()==ItemEvent.SELECTED) {
-				eleccion = 5.00;
-			}
-		}else if ("5.50".equals(e.getItem())) {
-			if (e.getStateChange()==ItemEvent.SELECTED) {
-				eleccion = 5.50;
-			}
-		}else if ("6.00".equals(e.getItem())) {
-			if (e.getStateChange()==ItemEvent.SELECTED) {
-				eleccion = 6.00;
-			}
-		}else if ("6.50".equals(e.getItem())) {
-			if (e.getStateChange()==ItemEvent.SELECTED) {
-				eleccion = 6.50;
-			}
-		}else if ("7.00".equals(e.getItem())) {
-			if (e.getStateChange()==ItemEvent.SELECTED) {
-				eleccion = 7.00;
-			}
-		}else if ("7.50".equals(e.getItem())) {
-			if (e.getStateChange()==ItemEvent.SELECTED) {
-				eleccion = 7.50;
-			}
-		}else if ("8.00".equals(e.getItem())) {
-			if (e.getStateChange()==ItemEvent.SELECTED) {
-				eleccion = 8.00;
-			}
-		}else if ("8.50".equals(e.getItem())) {
-			if (e.getStateChange()==ItemEvent.SELECTED) {
-				eleccion = 8.50;
-			}
-		}else if ("9.00".equals(e.getItem())) {
-			if (e.getStateChange()==ItemEvent.SELECTED) {
-				eleccion = 9.00;
-			}
-		}else if ("9.50".equals(e.getItem())) {
-			if (e.getStateChange()==ItemEvent.SELECTED) {
-				eleccion = 9.50;
+		for (String string : precios) {
+			if (string.equals(e.getItem())) {
+				if (e.getStateChange() == ItemEvent.SELECTED) {
+					eleccion= Double.parseDouble(string);
+				}
 			}
 		}
 	}
