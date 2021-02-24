@@ -114,10 +114,6 @@ public class AltaClientes implements WindowListener, ActionListener, ItemListene
 		frmAltaClientes.setVisible(true);
 	}
 
-	public static void main(String[] args) {
-		new AltaClientes();
-	}
-
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		if ("Hombre".equals(e.getItem()))
@@ -158,7 +154,7 @@ public class AltaClientes implements WindowListener, ActionListener, ItemListene
 					statement.executeUpdate(sentencia);
 					creacionDialogoNotificacion(dlgClienteInsertado, lblAnadidoCorrectamente);
 					dlgClienteInsertado.setVisible(true);
-
+					bd.desconectar(connection);
 				} catch (SQLException e1)
 				{
 					lblErrorAnadidoCliente.setText("Error al insertar");
