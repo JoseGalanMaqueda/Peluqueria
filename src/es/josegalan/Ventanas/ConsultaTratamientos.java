@@ -80,6 +80,8 @@ public class ConsultaTratamientos implements WindowListener, ActionListener
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(btnCancelarConsultaTratamientos)) {
 			frmConsulaTratamientos.setVisible(false);
+			frmConsulaTratamientos.removeWindowListener(this);
+			btnCancelarConsultaTratamientos.removeActionListener(this);
 		}
 	}
 
