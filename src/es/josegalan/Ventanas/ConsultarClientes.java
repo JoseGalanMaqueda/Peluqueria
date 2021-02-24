@@ -54,6 +54,7 @@ public class ConsultarClientes implements WindowListener, ActionListener
 			txaConsultaClientes.selectAll();
 			txaConsultaClientes.setText("");
 			txaConsultaClientes.append("IdCliente\tNombre\tApellidos\tDNI\tDireccion\tSexo\n");
+			txaConsultaClientes.append("====================================================\n");
 			while (rs.next()) {
 				txaConsultaClientes.append(rs.getInt("idCliente")+"\t"+rs.getString("nombreCliente")+"\t"+rs.getString("apellidosCliente")+"\t"+
 						rs.getString("dniCliente")+"\t"+rs.getString("direccionCliente")+"\t"+rs.getString("sexoCliente")+"\n");

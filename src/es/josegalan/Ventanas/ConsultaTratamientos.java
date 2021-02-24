@@ -53,6 +53,7 @@ public class ConsultaTratamientos implements WindowListener, ActionListener
 			txaConsultaTratamientos.selectAll();
 			txaConsultaTratamientos.setText("");
 			txaConsultaTratamientos.append("IdTratamiento\tNombre\tDescripcion\tPrecio\n");
+			txaConsultaTratamientos.append("=======================================================================\n");
 			while (rs.next()) {
 				txaConsultaTratamientos.append(rs.getInt("idTratamiento")+"\t"+rs.getString("nombreTratamiento")+"\t"+rs.getString("descripcionTratamiento")+"\t"+
 						rs.getInt("precioTratamiento")+"\n");
@@ -76,6 +77,7 @@ public class ConsultaTratamientos implements WindowListener, ActionListener
 		frmConsulaTratamientos.setVisible(true);
 	}
 
+	// ======================================== ACTION LISTENER ========================================================
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(btnCancelarConsultaTratamientos)) {
@@ -85,6 +87,7 @@ public class ConsultaTratamientos implements WindowListener, ActionListener
 		}
 	}
 
+	// ========================================== WINDOW LISTENER =====================================================
 	@Override
 	public void windowOpened(WindowEvent e) {}
 
