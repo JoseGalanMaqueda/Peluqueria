@@ -13,6 +13,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+import es.josegalan.BaseDatos.BaseDatos;
 
 public class Principal implements WindowListener, ActionListener
 {
@@ -45,6 +53,13 @@ public class Principal implements WindowListener, ActionListener
 	Menu mnuCitas = new Menu("Citas");
 	MenuItem mniAltaCitas = new MenuItem("Nueva Cita");
 	MenuItem mniConsultaCitas = new MenuItem("Consultar Citas");
+
+	// =========================================== BASES DE DATOS ==========================================
+	BaseDatos bd = null;
+	String sentencia = "";
+	Connection connection = null;
+	Statement statement = null;
+	ResultSet rs = null;
 
 	public Principal(int tipo) 
 	{
@@ -86,9 +101,11 @@ public class Principal implements WindowListener, ActionListener
 		ventanaPrincipal.setMenuBar(menuPrincipal);
 		ventanaPrincipal.add(lblCitasHoy);
 		txaCitasHoy.setEditable(false);
+		cargarCitas(txaCitasHoy);
 		txaCitasHoy.setBackground(Color.WHITE);
 		ventanaPrincipal.add(txaCitasHoy);
 		btnActualizar.setBackground(Color.WHITE);
+		btnActualizar.addActionListener(this);
 		ventanaPrincipal.add(btnActualizar);
 		ventanaPrincipal.setBackground(clFondo);
 		ventanaPrincipal.addWindowListener(this);
@@ -98,17 +115,31 @@ public class Principal implements WindowListener, ActionListener
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource().equals(mniAltaCliente)) {
+	public void actionPerformed(ActionEvent e) 
+	{
+		if (e.getSource().equals(mniAltaCliente)) 
+		{
 			new AltaClientes();
-		}else if (e.getSource().equals(mniConsultaCliente)) {
+		}
+		else if (e.getSource().equals(mniConsultaCliente)) 
+		{
 			new ConsultarClientes();
-		}else if (e.getSource().equals(mniAltaTratamiento)) {
+		}
+		else if (e.getSource().equals(mniAltaTratamiento)) 
+		{
 			new AltaTratamiento();
-		}else if (e.getSource().equals(mniConsultaTratamientos)) {
+		}
+		else if (e.getSource().equals(mniConsultaTratamientos)) 
+		{
 			new ConsultaTratamientos();
-		}else if (e.getSource().equals(mniAltaCitas)) {
+		}
+		else if (e.getSource().equals(mniAltaCitas)) 
+		{
 			new AltaCita();
+		}
+		else if (e.getSource().equals(btnActualizar)) 
+		{
+			cargarCitas(txaCitasHoy);
 		}
 
 	}
@@ -141,5 +172,50 @@ public class Principal implements WindowListener, ActionListener
 
 	@Override
 	public void windowDeactivated(WindowEvent e) {}
+
+	// ====================================================== CARGAR CITAS A TEXTAREA ===============================================
+	public void cargarCitas(TextArea txaListadoCitas) {
+		txaListadoCitas.selectAll();
+		txaListadoCitas.setText("");
+		bd = new BaseDatos();
+		connection = bd.conectar();
+		try {
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+					ResultSet.CONCUR_READ_ONLY);
+			sentencia = "SELECT citas.fechaCita, citas.horaCita, clientes.nombreCliente, clientes.apellidosCliente FROM citas, clientes "
+					+ "WHERE citas.idClienteFK = clientes.idCliente\n"
+					+ "AND citas.fechaCita > date('"+obtenerFechaHoy()+"')\n"
+					+ "Order by citas.fechaCita, citas.horaCita;";
+			rs = statement.executeQuery(sentencia);
+			txaListadoCitas.selectAll();
+			txaListadoCitas.setText("");
+			txaListadoCitas.append("Fecha\tHora\tNombre\tApellidos\n");
+			txaListadoCitas.append("=========================================\n");
+			while (rs.next()) {
+				txaListadoCitas.append(rs.getDate("fechaCita")+"\t"+rs.getTime("horaCita")+"\t"+rs.getString("nombreCliente")+"\t"+rs.getString("apellidosCliente")+"\n");
+			}
+		} catch (SQLException e) {
+			txaListadoCitas.selectAll();
+			txaListadoCitas.setText("");
+			txaListadoCitas.append("Error al cargar los datos");	
+		}finally {
+			bd.desconectar(connection);
+		}
+		
+	}
+	
+	// ============================================ OBTENER FECHA =======================================================
+	public String obtenerFechaHoy() {
+		Calendar fecha = new GregorianCalendar();
+		  
+        int año = fecha.get(Calendar.YEAR);
+        int mes = fecha.get(Calendar.MONTH);
+        int dia = fecha.get(Calendar.DAY_OF_MONTH);
+  
+        return (año + "-" + (mes+1) + "-" + dia);
+	}
+
+
+
 
 }
