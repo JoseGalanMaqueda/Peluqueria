@@ -27,7 +27,7 @@ public class Principal implements WindowListener, ActionListener
 
 	//===================================== VENTANA PRINCIPAL ==================================
 	Frame ventanaPrincipal = new Frame("Peluqueria Forever Young");
-	Label lblCitasHoy = new Label("Citas Hoy:");
+	Label lblProximasCitas = new Label("Proximas Citas:");
 	TextArea txaCitasHoy = new TextArea(16,54);
 	Button btnActualizar = new Button("Actualizar");
 	Color clFondo = new Color(204,229,255);
@@ -99,7 +99,7 @@ public class Principal implements WindowListener, ActionListener
 		menuPrincipal.add(mnuCitas);
 
 		ventanaPrincipal.setMenuBar(menuPrincipal);
-		ventanaPrincipal.add(lblCitasHoy);
+		ventanaPrincipal.add(lblProximasCitas);
 		txaCitasHoy.setEditable(false);
 		cargarCitas(txaCitasHoy);
 		txaCitasHoy.setBackground(Color.WHITE);

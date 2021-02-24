@@ -48,9 +48,11 @@ public class Login implements WindowListener, ActionListener
 		frmVentanaLogin.addWindowListener(this);
 		frmVentanaLogin.setSize(290,160);
 		frmVentanaLogin.add(lblnombreUsuario);
+		txtNombreUsuario.setText("admin");
 		frmVentanaLogin.add(txtNombreUsuario);
 		frmVentanaLogin.add(lblpassword);
 		txtPassword.setEchoChar('*');
+		txtPassword.setText("Studium2020;");
 		frmVentanaLogin.add(txtPassword);
 		btnAcceder.addActionListener(this);
 		btnAcceder.setBackground(Color.WHITE);
