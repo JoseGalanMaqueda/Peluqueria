@@ -138,6 +138,9 @@ public class AltaClientes implements WindowListener, ActionListener, ItemListene
 		if (e.getSource().equals(btnCancelarAltaClientes)) 
 		{
 			frmAltaClientes.setVisible(false);
+			frmAltaClientes.removeWindowListener(this);
+			btnAltaClientes.removeActionListener(this);
+			btnCancelarAltaClientes.addActionListener(this);
 		}
 		else if (e.getSource().equals(btnAltaClientes)) 
 		{
