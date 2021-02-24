@@ -62,7 +62,8 @@ public class ConsultarClientes implements WindowListener, ActionListener
 		} catch (SQLException e) {
 			txaConsultaClientes.selectAll();
 			txaConsultaClientes.setText("");
-			txaConsultaClientes.append("Error al cargar los datos");
+			txaConsultaClientes.append("Error al cargar los datos");	
+		}finally {
 			bd.desconectar(connection);
 		}
 		frmConsulaClientes.add(txaConsultaClientes);
