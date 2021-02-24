@@ -110,8 +110,5 @@ public class ConsultaTratamientos implements WindowListener, ActionListener
 	@Override
 	public void windowDeactivated(WindowEvent e) {}
 	
-	public static void main(String[] args) {
-		new ConsultaTratamientos();
-	}
 
 }
