@@ -51,6 +51,7 @@ public class AltaTratamiento implements WindowListener, ActionListener
 	Statement statement = null;
 	ResultSet rs = null;
 
+	// ======================================= CONSTRUCTOR ====================================================
 	public AltaTratamiento() 
 	{
 		frmAltaTratamientos.setSize(400, 270);
@@ -78,6 +79,7 @@ public class AltaTratamiento implements WindowListener, ActionListener
 		frmAltaTratamientos.setVisible(true);
 	}
 
+	// ==================================== ACTION PERFORMED =============================================
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
@@ -136,11 +138,9 @@ public class AltaTratamiento implements WindowListener, ActionListener
 		return booleano;
 	}
 
+	// ========================================== WINDOW LISTENER ================================================
 	@Override
-	public void windowOpened(WindowEvent e) {
-		// TODO Auto-generated method stub
-
-	}
+	public void windowOpened(WindowEvent e) {}
 
 	@Override
 	public void windowClosing(WindowEvent e) {
@@ -160,33 +160,18 @@ public class AltaTratamiento implements WindowListener, ActionListener
 	}
 
 	@Override
-	public void windowClosed(WindowEvent e) {
-		// TODO Auto-generated method stub
-
-	}
+	public void windowClosed(WindowEvent e) {}
 
 	@Override
-	public void windowIconified(WindowEvent e) {
-		// TODO Auto-generated method stub
-
-	}
+	public void windowIconified(WindowEvent e) {}
 
 	@Override
-	public void windowDeiconified(WindowEvent e) {
-		// TODO Auto-generated method stub
-
-	}
+	public void windowDeiconified(WindowEvent e) {}
 
 	@Override
-	public void windowActivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-
-	}
+	public void windowActivated(WindowEvent e) {}
 
 	@Override
-	public void windowDeactivated(WindowEvent e) {
-		// TODO Auto-generated method stub
-
-	}
+	public void windowDeactivated(WindowEvent e) {}
 
 }
