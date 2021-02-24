@@ -35,6 +35,7 @@ public class ConsultarClientes implements WindowListener, ActionListener
 	ResultSet rs = null;
 	String sentencia = "";
 
+	// ============================== CONSTRUCTOR ==========================================
 	public ConsultarClientes() 
 	{
 		frmConsulaClientes.setLayout(new FlowLayout());
@@ -76,6 +77,7 @@ public class ConsultarClientes implements WindowListener, ActionListener
 		frmConsulaClientes.setVisible(true);
 	}
 
+	// ===================================== ACTION LISTENER ==========================================
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(btnCancelarConsultaClientes)) {
@@ -86,6 +88,7 @@ public class ConsultarClientes implements WindowListener, ActionListener
 		}
 	}
 
+	// ======================================= WINDOW LISTENER ==========================================
 	@Override
 	public void windowOpened(WindowEvent e) {}
 
