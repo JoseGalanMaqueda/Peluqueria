@@ -100,6 +100,7 @@ public class AltaTratamiento implements WindowListener, ActionListener
 					statement.executeUpdate(sentencia);
 					creacionDialogoNotificacion(dlgTratamientoInsertado, lblAnadidoCorrectamente);
 					dlgTratamientoInsertado.setVisible(true);
+					bd.desconectar(connection);
 
 				} catch (SQLException e1)
 				{
