@@ -73,6 +73,7 @@ public class AltaClientes implements WindowListener, ActionListener, ItemListene
 	Statement statement = null;
 	ResultSet rs = null;
 
+	// ========================================= CONSTRUCTOR ================================================
 	public AltaClientes() {
 		frmAltaClientes.setSize(400, 300);
 		frmAltaClientes.setLayout(new GridLayout(6,2));
@@ -114,6 +115,7 @@ public class AltaClientes implements WindowListener, ActionListener, ItemListene
 		frmAltaClientes.setVisible(true);
 	}
 
+	// ========================================== ITEM LISTENER ===================================================
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		if ("Hombre".equals(e.getItem()))
@@ -185,6 +187,7 @@ public class AltaClientes implements WindowListener, ActionListener, ItemListene
 		return booleano;
 	}
 
+	// ============================================= DIALOGO NOTIFICACION ==========================================================
 	public void creacionDialogoNotificacion(Dialog dialogo, Label lbl) {
 		dialogo.setSize(230, 100);
 		dialogo.setLayout(new FlowLayout());
@@ -194,9 +197,9 @@ public class AltaClientes implements WindowListener, ActionListener, ItemListene
 		dialogo.addWindowListener(this);
 	}
 
+	// =============================================== WINDOW LISTENER =============================================================
 	@Override
-	public void windowOpened(WindowEvent e) {
-	}
+	public void windowOpened(WindowEvent e) {}
 
 	@Override
 	public void windowClosing(WindowEvent e) {
