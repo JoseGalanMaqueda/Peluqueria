@@ -136,6 +136,8 @@ public class Principal implements WindowListener, ActionListener
 		else if (e.getSource().equals(mniAltaCitas)) 
 		{
 			new AltaCita();
+		}else if (e.getSource().equals(mniConsultaCitas)) {
+			new ConsultarCitas();
 		}
 		else if (e.getSource().equals(btnActualizar)) 
 		{
