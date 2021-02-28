@@ -120,6 +120,8 @@ public class Principal implements WindowListener, ActionListener
 		if (e.getSource().equals(mniAltaCliente)) 
 		{
 			new AltaClientes();
+		}else if (e.getSource().equals(mniBajaCliente)) {
+			new EliminarCliente();
 		}
 		else if (e.getSource().equals(mniConsultaCliente)) 
 		{

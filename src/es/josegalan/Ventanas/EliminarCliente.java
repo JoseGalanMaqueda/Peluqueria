@@ -121,12 +121,6 @@ public class EliminarCliente implements WindowListener, ActionListener
 		dialogo.addWindowListener(this);
 	}
 
-
-
-	public static void main(String[] args) {
-		new EliminarCliente();
-	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(btnCancelarEliminar)) {
