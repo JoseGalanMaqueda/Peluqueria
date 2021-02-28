@@ -131,6 +131,10 @@ public class Principal implements WindowListener, ActionListener
 		{
 			new AltaTratamiento();
 		}
+		else if (e.getSource().equals(mniBajaTratamiento)) 
+		{
+			new EliminarTratamiento();
+		}
 		else if (e.getSource().equals(mniConsultaTratamientos)) 
 		{
 			new ConsultaTratamientos();
