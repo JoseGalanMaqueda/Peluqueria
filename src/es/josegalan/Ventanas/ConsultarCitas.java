@@ -85,7 +85,6 @@ public class ConsultarCitas implements WindowListener, ActionListener
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(btnCancelarConsultaCitas)) {
 			frmConsulaCitas.setVisible(false);
-			frmConsulaCitas.setVisible(false);
 			frmConsulaCitas.removeWindowListener(this);
 			btnCancelarConsultaCitas.removeActionListener(this);
 		}
