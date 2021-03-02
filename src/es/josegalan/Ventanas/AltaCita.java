@@ -16,6 +16,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import es.josegalan.BaseDatos.BaseDatos;
 
@@ -28,7 +30,7 @@ public class AltaCita implements ActionListener, WindowListener
 	Label lblSeleccionaCliente = new Label("Selecciona un Cliente:");
 	Choice cholistaClientes = new Choice();
 	Choice cholistaHoras = new Choice();
-	TextField txtFecha = new TextField("2020/10/21", 20);
+	TextField txtFecha = new TextField(""+obtenerFechaHoy()+"", 20);
 	TextField txtBuscarNombre = new TextField(20);
 	Button btnBuscar = new Button("Buscar");
 	Button btnAltaCitas = new Button("Alta Cita");
@@ -187,6 +189,16 @@ public class AltaCita implements ActionListener, WindowListener
 		dialogo.add(lbl);
 		dialogo.setLocationRelativeTo(null);
 		dialogo.addWindowListener(this);
+	}
+	
+	public String obtenerFechaHoy() {
+		Calendar fecha = new GregorianCalendar();
+		  
+        int año = fecha.get(Calendar.YEAR);
+        int mes = fecha.get(Calendar.MONTH);
+        int dia = fecha.get(Calendar.DAY_OF_MONTH);
+  
+        return (año + "-" + (mes+1) + "-" + dia);
 	}
 
 }

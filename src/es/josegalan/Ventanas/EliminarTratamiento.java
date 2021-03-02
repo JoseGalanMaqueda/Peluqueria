@@ -221,5 +221,7 @@ public class EliminarTratamiento implements ActionListener, WindowListener
 			}
 		}
 	}
+	
+	
 
 }
