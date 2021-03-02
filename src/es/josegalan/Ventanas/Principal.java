@@ -133,10 +133,13 @@ public class Principal implements WindowListener, ActionListener
 		if (e.getSource().equals(mniAltaCliente)) 
 		{
 			new AltaClientes();
-		}else if (e.getSource().equals(mniBajaCliente)) {
+		}
+		else if (e.getSource().equals(mniBajaCliente)) 
+		{
 			new EliminarCliente();
 		}
-		else if (e.getSource().equals(mniModificacionCliente)) {
+		else if (e.getSource().equals(mniModificacionCliente)) 
+		{
 			new ModificacionCliente();
 		}
 		else if (e.getSource().equals(mniConsultaCliente)) 
@@ -158,7 +161,9 @@ public class Principal implements WindowListener, ActionListener
 		else if (e.getSource().equals(mniAltaCitas)) 
 		{
 			new AltaCita();
-		}else if (e.getSource().equals(mniConsultaCitas)) {
+		}
+		else if (e.getSource().equals(mniConsultaCitas)) 
+		{
 			new ConsultarCitas();
 		}
 		else if (e.getSource().equals(btnActualizar)) 
