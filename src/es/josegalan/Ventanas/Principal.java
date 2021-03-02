@@ -53,6 +53,11 @@ public class Principal implements WindowListener, ActionListener
 	Menu mnuCitas = new Menu("Citas");
 	MenuItem mniAltaCitas = new MenuItem("Nueva Cita");
 	MenuItem mniConsultaCitas = new MenuItem("Consultar Citas");
+	
+	// ================================== MENU ASIGNAR TRATAMIENTOS ===================================
+	Menu mnuAsignarTratamientos = new Menu("Asignar Tratamiento");
+	MenuItem mniAltaAsignacion = new MenuItem("Nueva Asignacion");
+	MenuItem mniConsultarAsignacion = new MenuItem("Consultar Asignaciones");
 
 	// =========================================== BASES DE DATOS ==========================================
 	BaseDatos bd = null;
@@ -97,6 +102,14 @@ public class Principal implements WindowListener, ActionListener
 			mnuCitas.add(mniConsultaCitas);
 		}
 		menuPrincipal.add(mnuCitas);
+		
+		mniAltaAsignacion.addActionListener(this);
+		mnuAsignarTratamientos.add(mniAltaAsignacion);
+		if (tipo == 0) {
+			mniConsultarAsignacion.addActionListener(this);
+			mnuAsignarTratamientos.add(mniConsultarAsignacion);
+		}
+		menuPrincipal.add(mnuAsignarTratamientos);
 
 		ventanaPrincipal.setMenuBar(menuPrincipal);
 		ventanaPrincipal.add(lblProximasCitas);
