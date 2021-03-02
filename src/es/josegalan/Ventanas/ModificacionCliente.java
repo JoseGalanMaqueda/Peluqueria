@@ -84,6 +84,10 @@ public class ModificacionCliente implements ActionListener, WindowListener, Item
 	Dialog dlgErrorModificarCliente = new Dialog(frmConfirmacionModificarCliente, "Error", true);
 	Label lblErrorModificarCliente = new Label("Error al Modificar Cliente");
 
+	// ============================== DIALOGO NOTIFICACION ==================================
+	Dialog dlgErrorModificarSeleccionarCliente = new Dialog(frmModificarClienteUno, "Error", true);
+	Label lblErrorModificarSeleccionarCliente = new Label("Selecciona un cliente válido");
+
 	// ====================================== BASE DATOS ==================================================================
 	BaseDatos bd = null;
 	String sentencia = "";
@@ -175,6 +179,9 @@ public class ModificacionCliente implements ActionListener, WindowListener, Item
 			frmConfirmacionModificarCliente.removeWindowListener(this);
 			btnSiConfirmacionModificarCliente.removeActionListener(this);
 			btnNoConfirmacionModificarCliente.removeActionListener(this);
+		}else if (dlgErrorModificarSeleccionarCliente.isActive()) {
+			dlgErrorModificarSeleccionarCliente.setVisible(false);
+			dlgErrorModificarSeleccionarCliente.removeWindowListener(this);
 		}
 
 	}
@@ -204,8 +211,13 @@ public class ModificacionCliente implements ActionListener, WindowListener, Item
 			btnCancelarModificarUno.removeActionListener(this);
 		}else if (e.getSource().equals(btnModificarUno)) 
 		{
-			String[] datos = (cargarDatosCliente(choListaCliente.getSelectedItem().split("-")[0])).split("-");
-			cargarVentanaEdicionClientes(datos);
+			if (choListaCliente.getSelectedItem().equals("Selecciona un Cliente..")) {
+				creacionDialogoNotificacion(dlgErrorModificarSeleccionarCliente, lblErrorModificarSeleccionarCliente);
+				dlgErrorModificarSeleccionarCliente.setVisible(true);
+			}else {
+				String[] datos = (cargarDatosCliente(choListaCliente.getSelectedItem().split("-")[0])).split("-");
+				cargarVentanaEdicionClientes(datos);
+			}
 		}
 		else if (e.getSource().equals(btnCancelarModificacionClientesDos)) 
 		{

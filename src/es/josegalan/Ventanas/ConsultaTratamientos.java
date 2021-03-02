@@ -56,7 +56,7 @@ public class ConsultaTratamientos implements WindowListener, ActionListener
 			txaConsultaTratamientos.append("=======================================================================\n");
 			while (rs.next()) {
 				txaConsultaTratamientos.append(rs.getInt("idTratamiento")+"\t"+rs.getString("nombreTratamiento")+"\t"+rs.getString("descripcionTratamiento")+"\t"+
-						rs.getInt("precioTratamiento")+"\n");
+						rs.getDouble("precioTratamiento")+"0\n");
 			}
 		} catch (SQLException e) {
 			txaConsultaTratamientos.selectAll();
