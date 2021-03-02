@@ -77,10 +77,6 @@ public class ConsultaAsignacionesTratamientos implements ActionListener, WindowL
 		frmConsultaAsignaciones.setVisible(true);
 	}
 
-	public static void main(String[] args) {
-		new ConsultaAsignacionesTratamientos();
-	}
-
 	@Override
 	public void windowOpened(WindowEvent e) {}
 

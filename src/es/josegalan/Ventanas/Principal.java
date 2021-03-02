@@ -170,6 +170,13 @@ public class Principal implements WindowListener, ActionListener
 		{
 			new ConsultarCitas();
 		}
+		else if (e.getSource().equals(mniAltaAsignacion)) {
+			
+		}
+		else if (e.getSource().equals(mniConsultarAsignacion)) 
+		{
+			new ConsultaAsignacionesTratamientos();
+		}
 		else if (e.getSource().equals(btnActualizar)) 
 		{
 			cargarCitas(txaCitasHoy);
