@@ -102,12 +102,13 @@ public class AltaTratamiento implements WindowListener, ActionListener
 					statement.executeUpdate(sentencia);
 					creacionDialogoNotificacion(dlgTratamientoInsertado, lblAnadidoCorrectamente);
 					dlgTratamientoInsertado.setVisible(true);
-					bd.desconectar(connection);
-
+					
 				} catch (SQLException e1)
 				{
 					lblErrorAnadidoTratamiento.setText("Error al insertar");
 					dlgErrorInsertarTratamiento.setVisible(true);
+				}finally {
+					bd.desconectar(connection);
 				}
 			}
 			else 

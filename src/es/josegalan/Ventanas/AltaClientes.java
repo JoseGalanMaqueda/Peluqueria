@@ -159,11 +159,13 @@ public class AltaClientes implements WindowListener, ActionListener, ItemListene
 					statement.executeUpdate(sentencia);
 					creacionDialogoNotificacion(dlgClienteInsertado, lblAnadidoCorrectamente);
 					dlgClienteInsertado.setVisible(true);
-					bd.desconectar(connection);
+					
 				} catch (SQLException e1)
 				{
 					lblErrorAnadidoCliente.setText("Error al insertar");
 					dlgErrorInsertarCliente.setVisible(true);
+				}finally {
+					bd.desconectar(connection);
 				}
 			}
 			else 

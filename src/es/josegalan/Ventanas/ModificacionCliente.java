@@ -112,6 +112,7 @@ public class ModificacionCliente implements ActionListener, WindowListener, Item
 		frmModificarClienteUno.setVisible(true);
 	}
 
+	// ===================================== ITEM LISTENER ===============================================================
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		if ("Hombre".equals(e.getItem()))
@@ -130,6 +131,7 @@ public class ModificacionCliente implements ActionListener, WindowListener, Item
 		}
 	}
 
+	// =================================== WINDOWS LISTENER ================================================================
 	@Override
 	public void windowOpened(WindowEvent e) {}
 
@@ -192,6 +194,7 @@ public class ModificacionCliente implements ActionListener, WindowListener, Item
 	@Override
 	public void windowDeactivated(WindowEvent e) {}
 
+	// =================================================== ACTION LISTENER ======================================================
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(btnCancelarModificarUno)) {
@@ -241,11 +244,12 @@ public class ModificacionCliente implements ActionListener, WindowListener, Item
 					statement.executeUpdate(sentencia);
 					creacionDialogoNotificacion(dlgClientesModificado, lblModificadoCorrectamente);
 					dlgClientesModificado.setVisible(true);
-					bd.desconectar(connection);
 				} catch (SQLException e1)
 				{
 					lblErrorModificarCliente.setText("Error al insertar");
 					dlgErrorModificarCliente.setVisible(true);
+				}finally {
+					bd.desconectar(connection);
 				}
 			}
 			else 
