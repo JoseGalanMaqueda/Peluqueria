@@ -187,7 +187,9 @@ public class AltaAsignaciones implements ActionListener, WindowListener
 			choListaCitas.removeAll();
 			choListaCitas.add("Selecciona una Cita..");
 			while (rs.next()) {
-				choListaCitas.add(rs.getInt("citas.idCita")+"-["+rs.getDate("citas.fechaCita")+"]-"+rs.getTime("citas.horaCita")+"-"+rs.getString("clientes.nombreCliente")
+				String[] fechaEuropea = rs.getString("fechaCita").split("-");
+				String[] quitarSegundos = rs.getString("horaCita").split(":");
+				choListaCitas.add(rs.getInt("citas.idCita")+"-["+fechaEuropea[2]+"/"+fechaEuropea[1]+"/"+fechaEuropea[0]+"]-"+quitarSegundos[0]+":"+quitarSegundos[1]+"-"+rs.getString("clientes.nombreCliente")
 				+"-"+rs.getString("clientes.apellidosCliente"));
 			}
 		} catch (SQLException e) {
