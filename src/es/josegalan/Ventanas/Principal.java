@@ -232,7 +232,9 @@ public class Principal implements WindowListener, ActionListener
 			txaListadoCitas.append("Fecha\tHora\tNombre\tApellidos\n");
 			txaListadoCitas.append("=========================================\n");
 			while (rs.next()) {
-				txaListadoCitas.append(rs.getDate("fechaCita")+"\t"+rs.getTime("horaCita")+"\t"+rs.getString("nombreCliente")+"\t"+rs.getString("apellidosCliente")+"\n");
+				String[] fechaEuropea = rs.getString("fechaCita").split("-");
+				String[] quitarSegundos = rs.getString("horaCita").split(":");
+				txaListadoCitas.append(fechaEuropea[2]+"/"+fechaEuropea[1]+"/"+fechaEuropea[0]+"\t"+quitarSegundos[0]+":"+quitarSegundos[1]+"\t"+rs.getString("nombreCliente")+"\t"+rs.getString("apellidosCliente")+"\n");
 			}
 		} catch (SQLException e) {
 			txaListadoCitas.selectAll();
