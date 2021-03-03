@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 
 import es.josegalan.BaseDatos.BaseDatos;
 
@@ -57,7 +58,9 @@ public class ConsultarCitas implements WindowListener, ActionListener
 			txaConsultaCitas.append("IdCita\tFecha\tHora\tidCliente\n");
 			txaConsultaCitas.append("====================================================\n");
 			while (rs.next()) {
-				txaConsultaCitas.append(rs.getInt("idCita")+"\t"+rs.getDate("fechaCita")+"\t"+rs.getTime("horaCita")+"\t"+
+				String fecha = rs.getDate("fechaCita")+"";
+				String [] fechaEuropea = fecha.split("-");
+				txaConsultaCitas.append(rs.getInt("idCita")+"\t"+fechaEuropea[2]+"/"+fechaEuropea[1]+"/"+fechaEuropea[0]+"\t"+rs.getTime("horaCita")+"\t"+
 						rs.getInt("idClienteFK")+"\n");
 			}
 		} catch (SQLException e) {
