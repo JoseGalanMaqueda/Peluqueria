@@ -136,8 +136,9 @@ public class AltaCita implements ActionListener, WindowListener
 				connection = bd.conectar();
 				try
 				{
+					String[] fechaEuropea = txtFecha.getText().split("/");
 					statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-					sentencia = "INSERT INTO citas VALUES (null, '"+ txtFecha.getText()+ "', '" + cholistaHoras.getSelectedItem() +
+					sentencia = "INSERT INTO citas VALUES (null, '"+ fechaEuropea[2]+"-"+fechaEuropea[1]+"-"+fechaEuropea[0]+ "', '" + cholistaHoras.getSelectedItem() +
 							"', "+ cholistaClientes.getSelectedItem().split("-")[0] +");";
 					statement.executeUpdate(sentencia);
 					creacionDialogoNotificacion(dlgCitasInsertado, lblAnadidaCorrectamente);
@@ -198,7 +199,7 @@ public class AltaCita implements ActionListener, WindowListener
         int mes = fecha.get(Calendar.MONTH);
         int dia = fecha.get(Calendar.DAY_OF_MONTH);
   
-        return (año + "-" + (mes+1) + "-" + dia);
+        return (dia + "/" + (mes+1) + "/" + año);
 	}
 
 }
