@@ -59,7 +59,8 @@ public class ConsultarCitas implements WindowListener, ActionListener
 			while (rs.next()) {
 				String fecha = rs.getDate("fechaCita")+"";
 				String [] fechaEuropea = fecha.split("-");
-				txaConsultaCitas.append(rs.getInt("idCita")+"\t"+fechaEuropea[2]+"/"+fechaEuropea[1]+"/"+fechaEuropea[0]+"\t"+rs.getTime("horaCita")+"\t"+
+				String[] quitarSegundos = rs.getString("horaCita").split(":");
+				txaConsultaCitas.append(rs.getInt("idCita")+"\t"+fechaEuropea[2]+"/"+fechaEuropea[1]+"/"+fechaEuropea[0]+"\t"+quitarSegundos[0]+":"+quitarSegundos[1]+"\t"+
 						rs.getInt("idClienteFK")+"\n");
 			}
 		} catch (SQLException e) {
