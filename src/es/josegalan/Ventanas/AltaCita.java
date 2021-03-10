@@ -38,6 +38,7 @@ public class AltaCita implements ActionListener, WindowListener
 	Color clFondo = new Color(204,229,255);
 	String[] horas = {"9:00","9:30","10:00", "10:30","11:00","11:30","12:00","12:30","13:00","13:30","17:00","17:30","18:00",
 			"18:30","19:00","19:30","20:00"};
+	String idCita;
 
 	// ============================== DIALOGO NOTIFICACION ==================================
 	Dialog dlgCitasInsertado = new Dialog(frmAltaCitas, "Operacion Correcta", true);
@@ -141,8 +142,10 @@ public class AltaCita implements ActionListener, WindowListener
 					sentencia = "INSERT INTO citas VALUES (null, '"+ fechaEuropea[2]+"-"+fechaEuropea[1]+"-"+fechaEuropea[0]+ "', '" + cholistaHoras.getSelectedItem() +
 							"', "+ cholistaClientes.getSelectedItem().split("-")[0] +");";
 					statement.executeUpdate(sentencia);
+					idCita = idUltimaCita();
 					creacionDialogoNotificacion(dlgCitasInsertado, lblAnadidaCorrectamente);
 					dlgCitasInsertado.setVisible(true);
+					new AñadirAsignaciones(idCita, cholistaClientes.getSelectedItem().split("-"));
 				} catch (SQLException e1)
 				{
 					lblErrorAnadidoCita.setText("Error al insertar");
@@ -200,6 +203,25 @@ public class AltaCita implements ActionListener, WindowListener
         int dia = fecha.get(Calendar.DAY_OF_MONTH);
   
         return (dia + "/" + (mes+1) + "/" + año);
+	}
+	
+	public String idUltimaCita() {
+		bd = new BaseDatos();
+		connection = bd.conectar();
+		try {
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+					ResultSet.CONCUR_READ_ONLY);
+			sentencia = "SELECT max(idCita) FROM citas;";
+			rs = statement.executeQuery(sentencia);
+			while (rs.next()) {
+				idCita = rs.getString("max(idCita)");
+			}
+		} catch (SQLException e) {
+			idCita = "";
+		}finally {
+			bd.desconectar(connection);
+		}
+		return idCita;
 	}
 
 }

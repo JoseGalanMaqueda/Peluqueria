@@ -194,7 +194,7 @@ public class EliminarTratamiento implements ActionListener, WindowListener
 			frmConfirmacionEliminarTratamiento.removeWindowListener(this);
 		}else if (e.getSource().equals(btnSiConfirmacionElimiarTratamiento)) {
 			creacionDialogoNotificacion(dlgErrorInsertarTratamiento, lblErrorAnadidoTratamiento);
-			if (choListaTratamientos.getSelectedItem().equals("Selecciona un Cliente..")) 
+			if (choListaTratamientos.getSelectedItem().equals("Selecciona un Tratamiento..")) 
 			{
 				lblErrorAnadidoTratamiento.setText("Datos incorrectos");
 				dlgErrorInsertarTratamiento.setVisible(true);
