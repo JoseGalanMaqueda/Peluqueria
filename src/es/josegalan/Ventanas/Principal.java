@@ -105,8 +105,9 @@ public class Principal implements WindowListener, ActionListener
 		if (tipo == 0) {
 			mniConsultarAsignacion.addActionListener(this);
 			mnuAsignarTratamientos.add(mniConsultarAsignacion);
+			menuPrincipal.add(mnuAsignarTratamientos);
 		}
-		menuPrincipal.add(mnuAsignarTratamientos);
+		
 
 		ventanaPrincipal.setMenuBar(menuPrincipal);
 		ventanaPrincipal.add(lblProximasCitas);
