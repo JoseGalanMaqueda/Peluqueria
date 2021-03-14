@@ -219,7 +219,7 @@ public class Principal implements WindowListener, ActionListener
 					ResultSet.CONCUR_READ_ONLY);
 			sentencia = "SELECT citas.fechaCita, citas.horaCita, clientes.nombreCliente, clientes.apellidosCliente FROM citas, clientes "
 					+ "WHERE citas.idClienteFK = clientes.idCliente\n"
-					+ "AND citas.fechaCita > date('"+obtenerFechaHoy()+"')\n"
+					+ "AND citas.fechaCita >= date('"+obtenerFechaHoy()+"')\n"
 					+ "Order by citas.fechaCita, citas.horaCita;";
 			rs = statement.executeQuery(sentencia);
 			txaListadoCitas.selectAll();

@@ -52,7 +52,7 @@ public class AñadirAsignaciones implements WindowListener,ActionListener
 	public AñadirAsignaciones(String idCita, String[] clienteSeleccionado) {
 		datoCita = idCita;
 		frmAsignaciones.setLayout(new FlowLayout());
-		lblCitade.setText("Cita de " + clienteSeleccionado[1]);
+		lblCitade.setText("Cita de " + clienteSeleccionado[1]+"     ");
 		frmAsignaciones.add(lblCitade);
 		frmAsignaciones.add(lblSeleccionaTratamiento);
 		cargarListadoTratamientos(choListaTratamientos);
@@ -71,7 +71,7 @@ public class AñadirAsignaciones implements WindowListener,ActionListener
 		frmAsignaciones.add(btnCancelar);
 		frmAsignaciones.setBackground(clFondo);
 		frmAsignaciones.addWindowListener(this);
-		frmAsignaciones.setSize(300, 300);
+		frmAsignaciones.setSize(280, 300);
 		frmAsignaciones.setResizable(false);
 		frmAsignaciones.setLocationRelativeTo(null);
 		frmAsignaciones.setVisible(true);
@@ -197,7 +197,7 @@ public class AñadirAsignaciones implements WindowListener,ActionListener
 	}
 
 	public void creacionDialogoNotificacion(Dialog dialogo, Label lbl) {
-		dialogo.setSize(230, 100);
+		dialogo.setSize(260, 100);
 		dialogo.setLayout(new FlowLayout());
 		dialogo.setBackground(clFondo);
 		dialogo.add(lbl);
