@@ -19,7 +19,7 @@ import java.sql.Statement;
 
 import es.josegalan.BaseDatos.BaseDatos;
 
-public class AñadirAsignaciones implements WindowListener,ActionListener
+public class A�adirAsignaciones implements WindowListener,ActionListener
 {
 
 	Frame frmAsignaciones = new Frame("Alta Asignación Tratamiento");
@@ -49,7 +49,7 @@ public class AñadirAsignaciones implements WindowListener,ActionListener
 	Statement statement = null;
 	ResultSet rs = null;
 
-	public AñadirAsignaciones(String idCita, String[] clienteSeleccionado) {
+	public A�adirAsignaciones(String idCita, String[] clienteSeleccionado) {
 		datoCita = idCita;
 		frmAsignaciones.setLayout(new FlowLayout());
 		lblCitade.setText("Cita de " + clienteSeleccionado[1]+"     ");

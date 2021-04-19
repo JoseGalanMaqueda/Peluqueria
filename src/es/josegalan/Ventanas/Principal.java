@@ -245,11 +245,11 @@ public class Principal implements WindowListener, ActionListener
 	public String obtenerFechaHoy() {
 		Calendar fecha = new GregorianCalendar();
 		  
-        int aÃ±o = fecha.get(Calendar.YEAR);
+        int año = fecha.get(Calendar.YEAR);
         int mes = fecha.get(Calendar.MONTH);
         int dia = fecha.get(Calendar.DAY_OF_MONTH);
   
-        return (aÃ±o + "-" + (mes+1) + "-" + dia);
+        return (año + "-" + (mes+1) + "-" + dia);
 	}
 
 

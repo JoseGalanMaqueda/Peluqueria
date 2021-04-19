@@ -145,7 +145,7 @@ public class AltaCita implements ActionListener, WindowListener
 					idCita = idUltimaCita();
 					creacionDialogoNotificacion(dlgCitasInsertado, lblAnadidaCorrectamente);
 					dlgCitasInsertado.setVisible(true);
-					new AÃ±adirAsignaciones(idCita, cholistaClientes.getSelectedItem().split("-"));
+					new AñadirAsignaciones(idCita, cholistaClientes.getSelectedItem().split("-"));
 				} catch (SQLException e1)
 				{
 					lblErrorAnadidoCita.setText("Error al insertar");
@@ -198,11 +198,11 @@ public class AltaCita implements ActionListener, WindowListener
 	public String obtenerFechaHoy() {
 		Calendar fecha = new GregorianCalendar();
 		  
-        int aÃ±o = fecha.get(Calendar.YEAR);
+        int año = fecha.get(Calendar.YEAR);
         int mes = fecha.get(Calendar.MONTH);
         int dia = fecha.get(Calendar.DAY_OF_MONTH);
   
-        return (dia + "/" + (mes+1) + "/" + aÃ±o);
+        return (dia + "/" + (mes+1) + "/" + año);
 	}
 	
 	public String idUltimaCita() {
